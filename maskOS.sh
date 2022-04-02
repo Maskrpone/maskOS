@@ -42,10 +42,7 @@ git clone https://github.com/Maskrpone/wallpapers.git
 
 echo "Préparation du shell fish"
 
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fish cffish.fish 
 
 cp -r $HOME/Documents/github/dotfiles/config/nvim $HOME/.config/
 cp -r $HOME/Documents/github/dotfiles/config/alacritty $HOME/.config/
