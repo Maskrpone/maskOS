@@ -40,12 +40,23 @@ cd $HOME/Pictures
 
 git clone https://github.com/Maskrpone/wallpapers.git
 
+echo "Préparation de git"
+
+git config --global user.email "deparis.hipp@gmail.com"
+git config --global user.name "Maskrpone"
+
+
 echo "Préparation du shell fish"
 
-fish cffish.fish 
+./cffish.fish 
 
 cp -r $HOME/Documents/github/dotfiles/config/nvim $HOME/.config/
 cp -r $HOME/Documents/github/dotfiles/config/alacritty $HOME/.config/
 cp -r $HOME/Documents/github/dotfiles/config/ranger $HOME/.config/
+
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+
+chsh -s /usr/bin/fish maskrpone
 
 
