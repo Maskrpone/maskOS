@@ -22,6 +22,7 @@ cd .. && rm -fr yay-git/
 echo "Nous installons les applications dont vous aurez besoin"
 
 sudo pacman -S bitwarden warpinator firefox discord fish flameshot ranger htop sagemath zsh elinks ffmpegthumbnailer highlight libcaca lynx mediainfo odt2txt perl-image-exiftool poppler python-chardet ueberzug w3m
+
 yay -S visual-studio-code-bin brave-nightly-bin nerd-fonts-jetbrains-mono
 
 echo "configuration de vos dossiers de travail"
