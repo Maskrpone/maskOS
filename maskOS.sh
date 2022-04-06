@@ -35,11 +35,6 @@ cd ..
 
 git clone https://github.com/Maskrpone/ISEN.git
 
-echo "Importation de vos fonds d'écran"
-cd $HOME/Pictures
-
-git clone https://github.com/Maskrpone/wallpapers.git
-
 echo "Préparation de git"
 
 git config --global user.email "deparis.hipp@gmail.com"
