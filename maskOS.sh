@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "Configuration en cours"
-echo "Veuillez saisir votre mot de passe" 
 echo "Nous allons réaliser une mise à jour."
 
 sudo pacman -Syu
@@ -47,6 +46,8 @@ cp -r $HOME/Documents/github/dotfiles/config/ranger $HOME/.config/
 
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
+
+
 
 chsh -s /usr/bin/fish maskrpone
 
