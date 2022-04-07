@@ -44,10 +44,14 @@ cp -r $HOME/Documents/github/dotfiles/config/nvim $HOME/.config/
 cp -r $HOME/Documents/github/dotfiles/config/alacritty $HOME/.config/
 cp -r $HOME/Documents/github/dotfiles/config/ranger $HOME/.config/
 
+echo "daemon configuration"
+
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
+sudo timedatectl set-ntp true
 
 chsh -s /usr/bin/fish maskrpone
+
 
 echo "Configuration de fish"
 
