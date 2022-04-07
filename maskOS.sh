@@ -47,8 +47,11 @@ cp -r $HOME/Documents/github/dotfiles/config/ranger $HOME/.config/
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 
-
-
 chsh -s /usr/bin/fish maskrpone
 
+echo "Configuration de fish"
+
+chmod +x init.fish
+
+./init.fish
 
