@@ -1,0 +1,59 @@
+#!/usr/bin/bash
+
+sudo pacman -Syu
+
+echo "Installation of the primary packages"
+
+sudo pacman -S alacritty bluez bluez-utils blueman sof-firmware alsa-utils base-devel git vim neovim curl wget nitrogen lxappearance
+
+echo "Installation of yay"
+
+git clone https://aur.archlinux.org/yay-git.git
+
+cd yay-git/
+
+makepkg -si
+
+cd .. && rm -fr yay-git/
+
+echo "installation of secondary packages"
+
+sudo pacman -S bitwarden warpinator firefox discord fish flameshot ranger htop zsh elinks ffmpegthumbnailer highlight libcaca lynx mediainfo odt2txt perl-image-exiftool poppler python-chardet ueberzug w3m pavucontrol torbrowser-launcher sagemath zathura zathura-djvu zathura-pdf-poppler zathura-ps zathura-cb pfetch
+
+yay -S visual-studio-code-bin brave-nightly-bin nerd-fonts-jetbrains-mono rxfetch sysfetch-git
+
+echo "workspace configuration"
+
+cd $HOME/Documents/
+mkdir github
+cd github/
+
+git clone https://github.com/Maskrpone/ISEN.git
+
+cp -r $HOME/Documents/github/dotfiles/config/nvim $HOME/.config/
+cp -r $HOME/Documents/github/dotfiles/config/alacritty $HOME/.config/
+cp -r $HOME/Documents/github/dotfiles/config/ranger $HOME/.config/
+
+rm -fr $HOME/.config/bspwm/ && cp -r $HOME/Documents/github/dotfiles/config/bspwm/ $HOME/.config/ 
+rm -fr $HOME/.config/sxhkd/ && cp -r $HOME/Documents/github/dotfiles/sxhkd $HOME/.config/
+rm -fr $HOME/.config/polybar && cp -r $HOME/Documents/github/dotfiles/config/polybar $HOME/.config/
+cp -r $HOME/Documents/github/config/dunst/ $HOME/.config/
+
+echo "daemon configuration"
+
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+sudo timedatectl set-ntp true
+
+echo "vim plug and oh-my-fish"
+
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+chsh -s /usr/bin/fish maskrpone
+
+echo "done, please restart"
+
+
