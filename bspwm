@@ -39,6 +39,14 @@ rm -fr $HOME/.config/sxhkd/ && cp -r $HOME/Documents/github/dotfiles/sxhkd $HOME
 rm -fr $HOME/.config/polybar && cp -r $HOME/Documents/github/dotfiles/config/polybar $HOME/.config/
 cp -r $HOME/Documents/github/config/dunst/ $HOME/.config/
 
+cd $HOME
+
+git clone https://github.com/catppuccin/rofi ./.catppuccin-rofi
+cd ./.catppuccin-rofi
+mkdir -p ~/.config/rofi ~/.local/share/rofi/themes
+cp -r ./.config/rofi/* ~/.config/rofi
+cp -r ./.local/share/rofi/themes/* ~/.local/share/rofi/themes/
+
 echo "daemon configuration"
 
 sudo systemctl enable bluetooth.service
